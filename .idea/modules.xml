@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/onsteroidsgit.iml" filepath="$PROJECT_DIR$/.idea/onsteroidsgit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OnSteroids.iml" filepath="$PROJECT_DIR$/.idea/modules/OnSteroids.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OnSteroids.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OnSteroids.app.iml" />
     </modules>
   </component>
 </project>
