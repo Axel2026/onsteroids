@@ -19,6 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".OstatnieTreningi"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.SilowniaApp.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".NowyUzytkownik"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.SilowniaApp.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

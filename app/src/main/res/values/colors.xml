@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tlo">#343434</color>
+    <color name="nawigacja">#444444</color>
+    <color name="nawigacjaCzcionka">#f85f6a</color>
+    f85f6a
+
 </resources>

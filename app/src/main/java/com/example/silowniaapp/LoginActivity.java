@@ -28,13 +28,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nick = input.toString();
+                //if(nick == "") {
                 if(nick.isEmpty()) {
-                    input.setText("xd");
+                    //NIE DZIAŁA
+                    Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
+                    startActivity(intentNowyUzytkownik);
                 }else{
-                    Intent intent2 = new Intent(LoginActivity.this, OstatnieTreningi.class);
-                    intent2.putExtra("NICKNAME", nick);
+                    Intent intent = new Intent(LoginActivity.this, OstatnieTreningi.class);
+                    intent.putExtra("NICKNAME", nick);
                     saveNick(nick);
-                    startActivity(new Intent(LoginActivity.this, OstatnieTreningi.class));
+                    startActivity(intent);
                 }
             }
         });

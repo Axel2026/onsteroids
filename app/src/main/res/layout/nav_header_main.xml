@@ -15,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="LOGIN"
-        android:textColor="@color/black"/>
+        android:paddingLeft="40dp"
+        android:textSize="40dp"
+        android:textColorHint="@color/nawigacjaCzcionka"
+        android:text="Login"
+        android:textColor="@color/nawigacjaCzcionka"/>
 
 </LinearLayout>
