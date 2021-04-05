@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/tworzeniePlanuNawigacja">
+
+    <fragment
+        android:id="@+id/tworzeniePlanuNawigacja"
+        android:name="com.example.silowniaapp.HomeFragment"
+        android:label="@string/tworzeniePlanuMenu"
+        tools:layout="@layout/ekran_logowania_layout" />
+
+    <fragment
+        android:id="@+id/planNawigacja"
+        android:name="com.example.silowniaapp.GalleryFragment"
+        android:label="@string/planMenu"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/ostatnieTreningiNawigacja"
+        android:name="com.example.silowniaapp.OstatnieTreningi"
+        android:label="@string/ostatnieTreningiMenu"
+        tools:layout="@layout/ekran_ostatnie_treningi_layout" />
+
+</navigation>
