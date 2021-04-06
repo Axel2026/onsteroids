@@ -19,20 +19,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_logowania_layout);
 
-        EditText input = findViewById(R.id.yourLogin);
-        input.setText(loadNick());
+        EditText login = findViewById(R.id.yourLogin);
+        login.setText(loadNick());
 
 
         Button button = findViewById(R.id.setLogin);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nick = input.toString();
-                //if(nick == "") {
-                if(nick.isEmpty()) {
-                    //NIE DZIAŁA
+                String nick = login.getText().toString();
+                if(nick.equals("michal")) {
                     Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
+                    saveNick(nick);
+                    intentNowyUzytkownik.putExtra("NICKNAME", nick);
                     startActivity(intentNowyUzytkownik);
+                }else if(nick.equals("")){
+                    String brakLoginu = "Proszę podać login!";
+                    login.setText(brakLoginu);
                 }else{
                     Intent intent = new Intent(LoginActivity.this, OstatnieTreningi.class);
                     intent.putExtra("NICKNAME", nick);

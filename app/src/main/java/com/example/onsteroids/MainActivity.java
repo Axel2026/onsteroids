@@ -1,7 +1,7 @@
 package com.example.onsteroids;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.silowniaapp.R;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {

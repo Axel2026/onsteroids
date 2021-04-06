@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@color/tlo">
+    android:background="@color/tlo"
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -23,10 +23,12 @@
         android:layout_width="326dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:fontFamily="@font/asap_bold"
         android:hint="Login"
-        android:textColorHint="@color/white"
         android:inputType="textPersonName"
+        android:text="Login"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
@@ -38,6 +40,7 @@
         android:id="@+id/setLogin"
         android:layout_width="325dp"
         android:layout_height="52dp"
+        android:fontFamily="@font/asap_bold"
         android:text="Zaloguj"
         app:backgroundTint="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,17 +52,17 @@
 
     <TextView
         android:id="@+id/whoareyou"
-        android:layout_width="180dp"
-        android:layout_height="44dp"
+        android:layout_width="283dp"
+        android:layout_height="66dp"
+        android:fontFamily="@font/bungee_shade"
         android:gravity="center"
         android:text="ON STEROIDS"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/yourLogin"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 </androidx.constraintlayout.widget.ConstraintLayout>
