@@ -21,7 +21,7 @@ public class NowyUzytkownik extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_nowy_uzytkownik_layout);
 
-        Button stworzPlan = findViewById(R.id.stworzPlan);
+        Button stworzPlan = findViewById(R.id.przyciskOk);
 
         TextView przywitanie = findViewById(R.id.przywitanie);
         String witajLogin = "Witaj " + loadNick() + ", ";

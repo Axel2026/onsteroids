@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TworzeniePlanu"
     android:background="@color/tlo">
-
 
     <TextView
         android:id="@+id/wybierzCwiczenia"
@@ -32,7 +32,7 @@
         android:text="Wybierz parię ciała"
         android:textColor="@color/white"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/stworzPlan"
+        app:layout_constraintBottom_toTopOf="@+id/przyciskOk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,13 +40,13 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <Button
-        android:id="@+id/stworzPlan"
+        android:id="@+id/przyciskOk"
         android:layout_width="262dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/asap_bold"
-        android:text="Stwórz plan"
-        app:backgroundTint="@android:color/holo_red_light"
+        android:text="OK"
+        app:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -69,81 +69,216 @@
 
             <RadioButton
                 android:id="@+id/cwiczenieKlata1"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieKlata1" />
+                android:text="Wyciskanie sztangi na ławeczce"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/cwiczenieKlata2"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieKlata2" />
+                android:text="Wyciskanie sztangi na krzywej ławeczce"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/cwiczenieKlata3"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieKlata3" />
+                android:text="Wyciskanie hantli leżąc"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rozpiętki na bramie"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rozpiętki na ławeczce"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wyciskanie na maszynie Smitha"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/cwiczenieBiceps1"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieBiceps1" />
+                android:text="Uginanie ramion - hantle" />
 
             <RadioButton
                 android:id="@+id/cwiczenieBiceps2"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieBiceps2" />
+                android:text="Uginanie ramion - sztanga krzywa" />
 
             <RadioButton
                 android:id="@+id/cwiczenieBiceps3"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieBiceps3" />
+                android:text="Uginanie ramion - sztanga prosta" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps4"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="'Modlitewnik'" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps5"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uginanie ramion - brama sznurki" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps6"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Podciąganie podchwytem" />
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps1"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieTriceps1" />
+                android:text="Wyciskanie francuskie" />
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps2"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieTriceps2" />
+                android:text="Prostowanie ramion - sznurki" />
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps3"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieTriceps3" />
+                android:text="Prostowanie ramion - metal" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps4"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wyciskanie francuskie hantlem" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps5"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dipy" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps6"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prostowanie ramion w opadzie tułowia" />
 
             <RadioButton
                 android:id="@+id/cwiczenieBarki1"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieBarki1" />
+                android:text="Wyciskanie żołnierskie" />
 
             <RadioButton
                 android:id="@+id/cwiczenieBarki2"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cwiczenieBarki2" />
+                android:text="Unoszenie hantli bokiem" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki3"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unoszenie hantli przodem" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki4"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maszyna 'Butterfly'" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki5"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Odwrotne rozpiętki na bramie" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki6"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wyciskanie hantli w górę" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi1"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Przysiady ze sztangą" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi2"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wspięcia na palce na maszynie" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi3"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prostowanie nóg na maszynie izotonicznej" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi4"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Przysiady na maszynie półwolnej" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi5"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uginanie nóg na maszynie leżąc" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieNogi6"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uginanie nóg na maszynie siedząc" />
         </LinearLayout>
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
