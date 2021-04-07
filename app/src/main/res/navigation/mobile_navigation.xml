@@ -15,7 +15,7 @@
         android:id="@+id/planNawigacja"
         android:name="com.example.silowniaapp.GalleryFragment"
         android:label="@string/planMenu"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/ekran_tworzenie_planu_layout" />
 
     <fragment
         android:id="@+id/ostatnieTreningiNawigacja"

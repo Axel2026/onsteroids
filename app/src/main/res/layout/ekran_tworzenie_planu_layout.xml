@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TworzeniePlanu"
+    android:background="@color/tlo">
+
+
+    <TextView
+        android:id="@+id/wybierzCwiczenia"
+        android:layout_width="365dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/tlo_wybierz"
+        android:gravity="center"
+        android:text="Wybierz ćwiczenia"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/wybierzParieCiala"
+        android:layout_width="306dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/tlo_wybierz"
+        android:gravity="center"
+        android:text="Wybierz parię ciała"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/stworzPlan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wybierzCwiczenia"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <Button
+        android:id="@+id/stworzPlan"
+        android:layout_width="262dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="76dp"
+        android:fontFamily="@font/asap_bold"
+        android:text="Stwórz plan"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="301dp"
+        android:background="@drawable/tlo_wybierz"
+        android:layout_height="253dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/wybierzParieCiala">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata1"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieKlata1" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata2"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieKlata2" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieKlata3"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieKlata3" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps1"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieBiceps1" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps2"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieBiceps2" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBiceps3"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieBiceps3" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps1"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieTriceps1" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps2"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieTriceps2" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieTriceps3"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieTriceps3" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki1"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieBarki1" />
+
+            <RadioButton
+                android:id="@+id/cwiczenieBarki2"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cwiczenieBarki2" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
