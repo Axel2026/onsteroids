@@ -22,7 +22,6 @@ public class NowyUzytkownik extends AppCompatActivity {
         setContentView(R.layout.ekran_nowy_uzytkownik_layout);
 
         Button stworzPlan = findViewById(R.id.przyciskOk);
-
         TextView przywitanie = findViewById(R.id.przywitanie);
         String witajLogin = "Witaj " + loadNick() + ", ";
         przywitanie.setText(witajLogin);
@@ -32,11 +31,10 @@ public class NowyUzytkownik extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     Intent stworzPlanIntent = new Intent(NowyUzytkownik.this, TworzeniePlanu.class);
+                    stworzPlanIntent.putExtra("NICKNAME", loadNick());
                     startActivity(stworzPlanIntent);
             }
         });
-
-
     }
 
 

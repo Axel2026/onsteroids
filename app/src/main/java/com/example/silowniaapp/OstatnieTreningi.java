@@ -28,7 +28,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-//public class OstatnieTreningi extends Fragment {
 public class OstatnieTreningi extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;

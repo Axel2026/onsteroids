@@ -1,34 +1,40 @@
 package com.example.silowniaapp;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.content.Intent;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TworzeniePlanu extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
+    String[] exerciseArr = new String[24];
+    Context c = TworzeniePlanu.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_tworzenie_planu_layout);
+
 
         RadioButton cwiczenieKlata1 = findViewById(R.id.cwiczenieKlata1);
         RadioButton cwiczenieKlata2 = findViewById(R.id.cwiczenieKlata2);
@@ -65,22 +71,115 @@ public class TworzeniePlanu extends AppCompatActivity {
         RadioButton cwiczenieNogi5 = findViewById(R.id.cwiczenieNogi5);
         RadioButton cwiczenieNogi6 = findViewById(R.id.cwiczenieNogi6);
 
-
-
-            //LINKI DO SPINNERA
-            //https://www.youtube.com/watch?v=urQp7KsQhW8
-            //https://androiddlaprogramistow.wordpress.com/2013/11/07/spinner-rozwijalna-lista-do-wyboru-jednej-opcji/
-            //https://www.youtube.com/watch?v=urQp7KsQhW8
-//        Spinner wybierzParieCiala = (Spinner) findViewById(R.id.wybierzParieCiala);
-//
-//        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(TworzeniePlanu.this,
-//                R.layout.spinner_item, getResources().getStringArray(R.array.parieCiala));
-//        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        wybierzParieCiala.setAdapter(myAdapter);
-
         final Spinner spinner = (Spinner)findViewById(R.id.wybierzParieCiala);
         String[] elementy = {"Wszystko","Klatka piersiowa", "Biceps", "Triceps", "Barki", "Nogi"};
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item, elementy);
+        Button stworzPlan = findViewById(R.id.przyciskOk);
+
+        stworzPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (cwiczenieKlata1.isChecked()) {
+                    exerciseArr[0] = "Wyciskanie sztangi na ławeczce";
+                }
+                if (cwiczenieKlata2.isChecked()) {
+                    exerciseArr[1] = "Wyciskanie sztangi na ławeczce ukośnej";
+                }
+                if (cwiczenieKlata3.isChecked()) {
+                    exerciseArr[2] = "Wyciskanie hantli leżąc";
+                }
+                if (cwiczenieKlata4.isChecked()) {
+                    exerciseArr[3] = "Rozpiętki na bramie";
+                }
+                if (cwiczenieKlata5.isChecked()) {
+                    exerciseArr[4] = "Rozpiętki na ławeczce";
+                }
+                if (cwiczenieKlata6.isChecked()) {
+                    exerciseArr[5] = "Wyciskanie na maszynie Smitha";
+                }
+                if (cwiczenieBiceps1.isChecked()) {
+                    exerciseArr[6] = "Uginanie ramion - hantle";
+                }
+                if (cwiczenieBiceps2.isChecked()) {
+                    exerciseArr[7] = "Uginanie ramion - sztanga krzywa";
+                }
+                if (cwiczenieBiceps3.isChecked()) {
+                    exerciseArr[8] = "Uginanie ramion - sztanga prosta";
+                }
+                if (cwiczenieBiceps4.isChecked()) {
+                    exerciseArr[9] = " \"Modlitewnik\" ";
+                }
+                if (cwiczenieBiceps5.isChecked()) {
+                    exerciseArr[10] = "Uginanie ramion - brama sznurki";
+                }
+                if (cwiczenieBiceps6.isChecked()) {
+                    exerciseArr[11] = "Podciąganie podchwytem";
+                }
+                if (cwiczenieTriceps1.isChecked()) {
+                    exerciseArr[12] = "Wyciskanie francuskie";
+                }
+                if (cwiczenieTriceps2.isChecked()) {
+                    exerciseArr[13] = "Prostowanie ramion - sznurki";
+                }
+                if (cwiczenieTriceps3.isChecked()) {
+                    exerciseArr[14] = "Prostowanie ramion - metalowy uchwyt";
+                }
+                if (cwiczenieTriceps4.isChecked()) {
+                    exerciseArr[15] = "Wyciskanie francuskie hantlami";
+                }
+                if (cwiczenieTriceps5.isChecked()) {
+                    exerciseArr[16] = "Dipy";
+                }
+                if (cwiczenieTriceps6.isChecked()) {
+                    exerciseArr[17] = "Prostowanie ramion w opadzie tułowia";
+                }
+                if (cwiczenieBarki1.isChecked()) {
+                    exerciseArr[18] = "Wyciskanie żołnierskie";
+                }
+                if (cwiczenieBarki2.isChecked()) {
+                    exerciseArr[19] = "Unoszenie hantli bokiem";
+                }
+                if (cwiczenieBarki3.isChecked()) {
+                    exerciseArr[20] = "Unoszenie hantli przodem";
+                }
+                if (cwiczenieBarki4.isChecked()) {
+                    exerciseArr[21] = "Maszyna 'Butterfly'";
+                }
+                if (cwiczenieBarki5.isChecked()) {
+                    exerciseArr[22] = "Odwrotne rozpiętki na bramie";
+                }
+                if (cwiczenieBarki6.isChecked()) {
+                    exerciseArr[23] = "Wyciskanie hantli w górę";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[24] = "Przysiady ze sztangą";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[25] = "Wspięcia na palce na maszynie";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[26] = "Prostowanie nóg na maszynie izotonicznej";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[27] = "Przysiady na maszynie półwolnej";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[28] = "Uginanie nóg na maszynie leżąc";
+                }
+                if (cwiczenieNogi1.isChecked()) {
+                    exerciseArr[29] = "Uginanie nóg na maszynie siedząc";
+                }
+
+                try {
+                    TworzenieJsona();
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                //saveArrayData(exerciseArr, "listacwiczen", c);
+                Intent intentNowyUzytkownik = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
+                startActivity(intentNowyUzytkownik);
+            }
+        });
 
         spinner.setAdapter(adapter);
 
@@ -90,7 +189,6 @@ public class TworzeniePlanu extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int id, long position) {
 
-                //Toast.makeText(TworzeniePlanu.this, "Wybrano opcję" + (id), Toast.LENGTH_SHORT).show();
 
                 switch((int)position)
                 {
@@ -326,10 +424,44 @@ public class TworzeniePlanu extends AppCompatActivity {
         });
     }
 
+    public void TworzenieJsona() throws IOException, JSONException {
+
+            int licznik = 0;
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("nazwa", loadNick());
+            JSONArray jsArray = new JSONArray();
+            for (int i = 0; i < exerciseArr.length; i++) {
+                licznik += exerciseArr[i]==null ? 0 : 1;
+                jsArray.put(exerciseArr[i]);
+            }
+            jsonObject.put("ćwiczenia", jsArray);
+            jsonObject.put("liczba ćwiczeń", licznik);
+            String userString = jsonObject.toString();
+            String fileName = loadNick() + ".json";
+            File file = new File(c.getFilesDir(), fileName);
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(userString);
+            bufferedWriter.close();
+    }
+
+    public String loadNick() {
+        SharedPreferences sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        return sharedPreferences.getString("NICK", "User");
+    }
+
+    public boolean saveArrayData(String[] array, String arrayName, Context mContext) {
+        SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(arrayName +" _size ", array.length);
+        for(int i=0 ; i<array.length ; i++){
+            editor.putString(arrayName + "_ " + i, array[i]);
+        }
+        return editor.commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }

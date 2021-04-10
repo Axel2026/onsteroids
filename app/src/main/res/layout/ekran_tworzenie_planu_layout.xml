@@ -167,17 +167,17 @@
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps3"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Prostowanie ramion - metal" />
+                android:text="Prostowanie ramion - metalowy uchwyt"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps4"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wyciskanie francuskie hantlem" />
+                android:text="Wyciskanie francuskie hantlami"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/cwiczenieTriceps5"

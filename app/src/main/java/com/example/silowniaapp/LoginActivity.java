@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nick = login.getText().toString();
-                if(nick.equals("michal")) {
+                if(nick.equals("michal69")) {
                     Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
                     saveNick(nick);
                     intentNowyUzytkownik.putExtra("NICKNAME", nick);
