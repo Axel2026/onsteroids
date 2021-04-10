@@ -16,9 +16,5 @@
             android:id="@+id/ostatnieTreningiNawigacja"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/ostatnieTreningiMenu" />
-        <item
-            android:id="@+id/progresNawigacja"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/progresMenu" />
     </group>
 </menu>

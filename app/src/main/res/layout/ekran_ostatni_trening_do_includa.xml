@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TworzeniePlanu"
+    android:background="@color/tlo">
+
+    <TextView
+        android:id="@+id/ostatniTreningTextView"
+        android:layout_width="406dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="Ostatni Trening"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="322dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="25dp"
+        android:src="@mipmap/kreska"
+        app:layout_constraintBottom_toBottomOf="@+id/ostatniTreningTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ostatniTreningTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ScrollView
+        android:layout_width="292dp"
+        android:layout_height="501dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ostatniTreningTextView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie1"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie2"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie3"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie4"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie5"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie5"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ostatnieCwiczenie6"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tlo_wybierz"
+                android:gravity="center"
+                android:text="ostatnieCwiczenie6"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/przyciskOk"
+        android:layout_width="262dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/asap_bold"
+        android:text="OK"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

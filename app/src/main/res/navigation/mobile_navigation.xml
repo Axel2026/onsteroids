@@ -9,18 +9,18 @@
         android:id="@+id/tworzeniePlanuNawigacja"
         android:name="com.example.silowniaapp.HomeFragment"
         android:label="@string/tworzeniePlanuMenu"
-        tools:layout="@layout/ekran_logowania_layout" />
+        tools:layout="@layout/ekran_logowania" />
 
     <fragment
         android:id="@+id/planNawigacja"
         android:name="com.example.silowniaapp.GalleryFragment"
         android:label="@string/planMenu"
-        tools:layout="@layout/ekran_tworzenie_planu_layout" />
+        tools:layout="@layout/ekran_tworzenie_planu" />
 
     <fragment
         android:id="@+id/ostatnieTreningiNawigacja"
-        android:name="com.example.silowniaapp.OstatnieTreningi"
+        android:name="com.example.silowniaapp.OstatniTrening"
         android:label="@string/ostatnieTreningiMenu"
-        tools:layout="@layout/ekran_ostatnie_treningi_layout" />
+        tools:layout="@layout/ekran_ostatni_trening" />
 
 </navigation>

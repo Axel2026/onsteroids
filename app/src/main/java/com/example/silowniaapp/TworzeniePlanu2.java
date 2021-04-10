@@ -3,23 +3,14 @@ package com.example.silowniaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
-import org.json.JSONTokener;
-import com.google.gson.Gson;
-import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.util.stream.Collectors;
 
 import org.json.*;
 
@@ -29,7 +20,7 @@ public class TworzeniePlanu2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ekran_tworzenie_planu2_layout);
+        setContentView(R.layout.ekran_tworzenie_planu2);
         tworzeniePrzyciskow(5);
         try {
             czytanieJsona();

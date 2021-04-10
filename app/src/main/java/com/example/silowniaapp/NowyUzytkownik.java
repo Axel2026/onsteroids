@@ -19,7 +19,7 @@ public class NowyUzytkownik extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ekran_nowy_uzytkownik_layout);
+        setContentView(R.layout.ekran_nowy_uzytkownik);
 
         Button stworzPlan = findViewById(R.id.przyciskOk);
         TextView przywitanie = findViewById(R.id.przywitanie);

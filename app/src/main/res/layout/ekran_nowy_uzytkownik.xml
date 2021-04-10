@@ -43,7 +43,7 @@ android:background="@color/tlo">
         app:layout_constraintTop_toBottomOf="@+id/przywitanie" />
 
     <Button
-        android:id="@+id/stworzPlan"
+        android:id="@+id/przyciskOk"
         android:layout_width="262dp"
         android:layout_height="49dp"
         android:layout_marginBottom="188dp"
