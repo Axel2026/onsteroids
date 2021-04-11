@@ -2,12 +2,10 @@ package com.example.silowniaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,9 +13,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-
-import com.google.android.material.navigation.NavigationView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +23,7 @@ import java.io.IOException;
 
 public class TworzeniePlanu extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
-    String[] exerciseArr = new String[24];
+    String[] exerciseArr = new String[30];
     Context c = TworzeniePlanu.this;
 
     @Override
@@ -155,19 +150,19 @@ public class TworzeniePlanu extends AppCompatActivity {
                 if (cwiczenieNogi1.isChecked()) {
                     exerciseArr[24] = "Przysiady ze sztangą";
                 }
-                if (cwiczenieNogi1.isChecked()) {
+                if (cwiczenieNogi2.isChecked()) {
                     exerciseArr[25] = "Wspięcia na palce na maszynie";
                 }
-                if (cwiczenieNogi1.isChecked()) {
+                if (cwiczenieNogi3.isChecked()) {
                     exerciseArr[26] = "Prostowanie nóg na maszynie izotonicznej";
                 }
-                if (cwiczenieNogi1.isChecked()) {
+                if (cwiczenieNogi4.isChecked()) {
                     exerciseArr[27] = "Przysiady na maszynie półwolnej";
                 }
-                if (cwiczenieNogi1.isChecked()) {
+                if (cwiczenieNogi5.isChecked()) {
                     exerciseArr[28] = "Uginanie nóg na maszynie leżąc";
                 }
-                if (cwiczenieNogi1.isChecked()) {
+                if (cwiczenieNogi6.isChecked()) {
                     exerciseArr[29] = "Uginanie nóg na maszynie siedząc";
                 }
 

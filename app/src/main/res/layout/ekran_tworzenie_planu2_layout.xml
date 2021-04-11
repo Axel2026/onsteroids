@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".TworzeniePlanu2">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layoutPrzyciski">
+
+            <Button
+                android:id="@+id/btn_act"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View" >
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
