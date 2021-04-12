@@ -30,4 +30,7 @@
     <item name="przycisk28" type="id" />
     <item name="przycisk29" type="id" />
     <item name="przycisk30" type="id" />
+    <item name="tekst1" type="id" />
+    <item name="tekst2" type="id" />
+    <item name="tekst3" type="id" />
 </resources>
