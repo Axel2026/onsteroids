@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SilowniaApp">
-        <activity android:name=".TworzeniePlanu2"></activity>
+        <activity android:name=".PlanTreningu"></activity>
+        <activity android:name=".TworzeniePlanu2" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
@@ -26,15 +27,15 @@
         <activity
             android:name=".OstatniTrening"
             android:label="@string/app_name"
-            android:theme="@style/Theme.SilowniaApp.NoActionBar"></activity>
+            android:theme="@style/Theme.SilowniaApp.NoActionBar" />
         <activity
             android:name=".NowyUzytkownik"
             android:label="@string/app_name"
-            android:theme="@style/Theme.SilowniaApp.NoActionBar"></activity>
+            android:theme="@style/Theme.SilowniaApp.NoActionBar" />
         <activity
             android:name=".TworzeniePlanu"
             android:label="@string/app_name"
-            android:theme="@style/Theme.SilowniaApp.NoActionBar"></activity>
+            android:theme="@style/Theme.SilowniaApp.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 
+import java.io.File;
+
 public class LoginActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -28,7 +30,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nick = login.getText().toString();
-                if(nick.equals("michal69")) {
+                String fileName = nick + ".json";
+                File file = new File(LoginActivity.this.getFilesDir(), fileName);
+                if(!file.exists()){
                     Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
                     saveNick(nick);
                     intentNowyUzytkownik.putExtra("NICKNAME", nick);
@@ -37,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     String brakLoginu = "Proszę podać login!";
                     login.setText(brakLoginu);
                 }else{
-                    Intent intent = new Intent(LoginActivity.this, OstatniTrening.class);
+                    Intent intent = new Intent(LoginActivity.this, PlanTreningu.class);
                     intent.putExtra("NICKNAME", nick);
                     saveNick(nick);
                     startActivity(intent);

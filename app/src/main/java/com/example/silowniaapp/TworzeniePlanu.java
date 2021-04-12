@@ -446,16 +446,6 @@ public class TworzeniePlanu extends AppCompatActivity {
         return sharedPreferences.getString("NICK", "User");
     }
 
-    public boolean saveArrayData(String[] array, String arrayName, Context mContext) {
-        SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(arrayName +" _size ", array.length);
-        for(int i=0 ; i<array.length ; i++){
-            editor.putString(arrayName + "_ " + i, array[i]);
-        }
-        return editor.commit();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);

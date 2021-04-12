@@ -2,6 +2,7 @@ package com.example.silowniaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -79,11 +81,14 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         serie.setId(idyET[1]);
         powtorzenia = new EditText(TworzeniePlanu2.this);
         powtorzenia.setId(idyET[2]);
-        obciazenie.setText("Obciążenie[kg]");
+        //obciazenie.setText("Obciążenie[kg]");
+        obciazenie.setText("1");
         obciazenie.setInputType(InputType.TYPE_CLASS_NUMBER);
-        serie.setText("Liczba serii");
+        //serie.setText("Liczba serii");
+        serie.setText("2");
         serie.setInputType(InputType.TYPE_CLASS_NUMBER);
-        powtorzenia.setText("Liczba powtórzeń");
+        //powtorzenia.setText("Liczba powtórzeń");
+        powtorzenia.setText("3");
         powtorzenia.setInputType(InputType.TYPE_CLASS_NUMBER);
         ll.addView(obciazenie);
         ll.addView(serie);
@@ -99,12 +104,19 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             }
             ll.addView(row);
         }
+
         Button ok = new Button(this);
         ok.setText("OK");
         ok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                if(Integer.parseInt(liczbaCwiczen) < 1){
+                    Toast.makeText(TworzeniePlanu2.this, "Nie dodano żadnego ćwiczenia", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 try {
                     TworzenieJsona();
+                    Intent intent = new Intent(TworzeniePlanu2.this, PlanTreningu.class);
+                    startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
@@ -116,7 +128,7 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         this.setContentView(sv);
     }
 
-    public String[] czytanieJsona() throws JSONException {
+    public void czytanieJsona() throws JSONException {
         try {
             FileInputStream fis = TworzeniePlanu2.this.openFileInput(loadNick() + ".json");
             int size = fis.available();
@@ -126,6 +138,10 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             String json = new String(buffer, "UTF-8");
             JSONObject jsonObject = new JSONObject(json);
             liczbaCwiczen = jsonObject.getString("liczba ćwiczeń");
+            if(Integer.parseInt(liczbaCwiczen) < 1){
+                Toast.makeText(this, "Nie dodano żadnego ćwiczenia", Toast.LENGTH_SHORT).show();
+                return;
+            }
             JSONArray arr = jsonObject.getJSONArray("ćwiczenia");
             List<String> listaCwiczen = new ArrayList<String>();
             for (int i=0; i<arr.length(); i++) {
@@ -143,7 +159,6 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return tablicaCwiczen;
     }
 
     public void TworzenieJsona() throws IOException, JSONException {
