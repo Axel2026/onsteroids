@@ -14,7 +14,10 @@ import android.widget.ScrollView;
 
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +39,8 @@ public class TworzeniePlanu2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Wpisać tabliceCwiczen do sczytanejTablicy i wpisywać zawartość do przycisków///////////////////////////
-        //Zrobić pojawianie się edittext od razu, liczby sczytywane są po kliknięciu przycisku i wpisywane do tablicy np. ["wyciskanie", "2", "3", "4"]//////////////
-        //https://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android///////////////////////////
-        //Później wpisać do jsona
-        //{"wyciskanie":["2", "3", "4"]}
         //Zrobić wygląd activity
-        //Zrobić przycisk OK, chyba musi tylko przechodzić do planu gotowego
+        //Zrobić przycisk OK/////////////
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_tworzenie_planu2);
         try {
@@ -53,17 +51,15 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         tworzeniePrzyciskow(Integer.parseInt(liczbaCwiczen));
         for(int i = 0; i < Integer.parseInt(liczbaCwiczen); i++) {
             kolejnyPrzycisk[0] = i;
-            System.out.println(kolejnyPrzycisk[0]);
             Button b1 = findViewById(idy[i]);
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
                 public void onClick(View v) {
+                    b1.setEnabled(false);
                     cwiczeniaObciazenieSeriePowtorzenia.add(tablicaCwiczen[a]);
                     cwiczeniaObciazenieSeriePowtorzenia.add(obciazenie.getText().toString());
                     cwiczeniaObciazenieSeriePowtorzenia.add(serie.getText().toString());
                     cwiczeniaObciazenieSeriePowtorzenia.add(powtorzenia.getText().toString());
-                    //System.out.println("ćwiczenie: " + tablicaCwiczen[a] + "\nLiczba powtórzeń: " + powtorzenia.getText().toString() +
-                    //        "\nLiczba Serii: " + serie.getText().toString() + "\nObciążenie: " + obciazenie.getText().toString());
                 }
             });
         }
@@ -71,6 +67,7 @@ public class TworzeniePlanu2 extends AppCompatActivity {
 
     public void tworzeniePrzyciskow(int ilosc){
         ScrollView sv = new ScrollView(this);
+        //Tutaj zmieniaj wygląd ekranu, sv to nasz layout, więc jego edytuj tu. Linijkę niżej jest zmiana jego tła.
         sv.setBackgroundColor(getResources().getColor(R.color.tlo));
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -102,6 +99,20 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             }
             ll.addView(row);
         }
+        Button ok = new Button(this);
+        ok.setText("OK");
+        ok.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+                    TworzenieJsona();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        ll.addView(ok);
         this.setContentView(sv);
     }
 
@@ -133,6 +144,26 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             e.printStackTrace();
         }
         return tablicaCwiczen;
+    }
+
+    public void TworzenieJsona() throws IOException, JSONException {
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nazwa", loadNick());
+        for (int i = 1; i < cwiczeniaObciazenieSeriePowtorzenia.size(); i+=4) {
+            JSONArray jsArray = new JSONArray();
+            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i));
+            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i+1));
+            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i+2));
+            jsonObject.put(cwiczeniaObciazenieSeriePowtorzenia.get(i-1), jsArray);
+        }
+        String userString = jsonObject.toString();
+        String fileName = loadNick() + "_cwiczenia" + ".json";
+        File file = new File(TworzeniePlanu2.this.getFilesDir(), fileName);
+        FileWriter fileWriter = new FileWriter(file);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(userString);
+        bufferedWriter.close();
     }
 
 
