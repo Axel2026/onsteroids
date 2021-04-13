@@ -54,10 +54,10 @@ public class PlanTreningu extends AppCompatActivity {
                 public void onClick(View v) {
                     b1.setBackgroundResource(R.color.nawigacjaCzcionka);
                     Intent intentCwiczenie = new Intent(PlanTreningu.this, Cwiczenie.class);
-                    saveCw("o" + kolejnyPrzycisk[0], seriePowtorzenia[kolejnyPrzycisk[0]][0]);
-                    saveCw("s"+ kolejnyPrzycisk[0], seriePowtorzenia[kolejnyPrzycisk[0]][1]);
-                    saveCw("p"+ kolejnyPrzycisk[0], seriePowtorzenia[kolejnyPrzycisk[0]][2]);
-                    saveCw("n"+ kolejnyPrzycisk[0], tablicaCwiczen[kolejnyPrzycisk[0]]);
+                    saveCw("o", seriePowtorzenia[a][0]);
+                    saveCw("s", seriePowtorzenia[a][1]);
+                    saveCw("p", seriePowtorzenia[a][2]);
+                    saveCw("n", tablicaCwiczen[a]);
                     saveCw("l", liczbaCwiczen);
                     startActivity(intentCwiczenie);
                 }
@@ -82,7 +82,7 @@ public class PlanTreningu extends AppCompatActivity {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
                 Button button = new Button(this);
-                String t = "O: " + seriePowtorzenia[j][0] + " S: " + seriePowtorzenia[j][1] + " P: " + seriePowtorzenia[j][2];
+                String t = "O: " + seriePowtorzenia[i][0] + " S: " + seriePowtorzenia[i][1] + " P: " + seriePowtorzenia[i][2];
                 button.setText(tablicaCwiczen[i] + "  " +t);
                 button.setId(idy[i]);
                 DisplayMetrics displayMetrics = new DisplayMetrics();
