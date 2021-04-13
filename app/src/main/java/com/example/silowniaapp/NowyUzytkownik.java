@@ -37,7 +37,6 @@ public class NowyUzytkownik extends AppCompatActivity {
         });
     }
 
-
     public String loadNick() {
         SharedPreferences sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         return sharedPreferences.getString("NICK", "User");

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SilowniaApp">
-        <activity android:name=".PlanTreningu"></activity>
+        <activity android:name=".Cwiczenie"></activity>
+        <activity android:name=".PlanTreningu" />
         <activity android:name=".TworzeniePlanu2" />
         <activity
             android:name=".LoginActivity"

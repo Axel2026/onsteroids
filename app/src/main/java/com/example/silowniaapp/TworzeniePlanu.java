@@ -171,7 +171,6 @@ public class TworzeniePlanu extends AppCompatActivity {
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
-                //saveArrayData(exerciseArr, "listacwiczen", c);
                 Intent intentNowyUzytkownik = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
                 startActivity(intentNowyUzytkownik);
             }

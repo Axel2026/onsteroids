@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tlo"
+    tools:context=".Cwiczenie">
+
+    <Button
+        android:id="@+id/startStop"
+        android:layout_width="262dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="64dp"
+        android:background="@color/okZielony"
+        android:fontFamily="@font/asap_bold"
+        android:text="START/STOP"
+        app:backgroundTint="@color/okZielony"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/ostatniTreningTextView2"
+        android:layout_width="406dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="120dp"
+        android:gravity="center"
+        android:text="Ćwiczenie"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/nazwaCwiczenia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="288dp"
+        android:layout_height="132dp"
+        android:src="@mipmap/kreska"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/nazwaCwiczenia"
+        android:layout_width="289dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="46dp"
+        android:background="#3d8af7"
+        android:fontFamily="@font/asap_bold"
+        android:gravity="center"
+        android:text="Biceps na bramie"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ops"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ostatniTreningTextView2" />
+
+    <TextView
+        android:id="@+id/ops"
+        android:layout_width="293dp"
+        android:layout_height="112dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/asap_bold"
+        android:text="Obciążenie:                      Powtórzenia:                      Serie:"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/czasCwiczenia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nazwaCwiczenia" />
+
+    <TextView
+        android:id="@+id/czasCwiczenia"
+        android:layout_width="294dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginBottom="176dp"
+        android:fontFamily="@font/asap_bold"
+        android:text="Czas: "
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ops" />
+</androidx.constraintlayout.widget.ConstraintLayout>
