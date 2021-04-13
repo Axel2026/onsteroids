@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     String brakLoginu = "Proszę podać login!";
                     login.setText(brakLoginu);
                 }else{
-                    Intent intent = new Intent(LoginActivity.this, PlanTreningu.class);
+                    Intent intent = new Intent(LoginActivity.this, OstatniTrening.class);
                     intent.putExtra("NICKNAME", nick);
                     saveNick(nick);
                     startActivity(intent);

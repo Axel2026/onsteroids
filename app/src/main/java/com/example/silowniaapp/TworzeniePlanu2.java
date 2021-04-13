@@ -172,6 +172,12 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i+2));
             jsonObject.put(cwiczeniaObciazenieSeriePowtorzenia.get(i-1), jsArray);
         }
+        jsonObject.put("liczba ćwiczeń", liczbaCwiczen);
+        JSONArray jsArray2 = new JSONArray();
+        for (int i = 0; i < tablicaCwiczen.length; i++) {
+            jsArray2.put(tablicaCwiczen[i]);
+        }
+        jsonObject.put("tablica ćwiczeń", jsArray2);
         String userString = jsonObject.toString();
         String fileName = loadNick() + "_cwiczenia" + ".json";
         File file = new File(TworzeniePlanu2.this.getFilesDir(), fileName);

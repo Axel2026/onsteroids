@@ -101,6 +101,8 @@ public class PlanTreningu extends AppCompatActivity {
         zakonczTrening.setBackgroundColor(getResources().getColor(R.color.okZielony));
         zakonczTrening.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent intent = new Intent(PlanTreningu.this, OstatniTrening.class);
+                startActivity(intent);
             }
         });
         ll3.addView(zakonczTrening);
