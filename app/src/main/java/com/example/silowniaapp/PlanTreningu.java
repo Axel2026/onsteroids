@@ -2,35 +2,38 @@ package com.example.silowniaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class PlanTreningu extends AppCompatActivity {
 
     int[] idy = {R.id.przycisk1, R.id.przycisk2, R.id.przycisk3, R.id.przycisk4, R.id.przycisk5, R.id.przycisk6, R.id.przycisk7, R.id.przycisk8, R.id.przycisk9, R.id.przycisk10, R.id.przycisk11, R.id.przycisk12, R.id.przycisk13, R.id.przycisk14, R.id.przycisk15, R.id.przycisk16,
             R.id.przycisk17, R.id.przycisk18, R.id.przycisk19, R.id.przycisk20, R.id.przycisk21, R.id.przycisk22, R.id.przycisk23, R.id.przycisk24, R.id.przycisk25, R.id.przycisk26, R.id.przycisk27, R.id.przycisk28, R.id.przycisk29, R.id.przycisk30 };
     String liczbaCwiczen;
+    Button zakonczTrening;
     String[] tablicaCwiczen;
     String[][] seriePowtorzenia;
     final int[] kolejnyPrzycisk = {0};
@@ -58,7 +61,7 @@ public class PlanTreningu extends AppCompatActivity {
                     saveCw("s", seriePowtorzenia[a][1]);
                     saveCw("p", seriePowtorzenia[a][2]);
                     saveCw("n", tablicaCwiczen[a]);
-                    saveCw("l", liczbaCwiczen);
+                    b1.setEnabled(false);
                     startActivity(intentCwiczenie);
                 }
             });
@@ -93,6 +96,15 @@ public class PlanTreningu extends AppCompatActivity {
             }
             ll3.addView(row);
         }
+        zakonczTrening = new Button(this);
+        zakonczTrening.setText("ZAKONCZ TRENING");
+        zakonczTrening.setBackgroundColor(getResources().getColor(R.color.okZielony));
+        zakonczTrening.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        ll3.addView(zakonczTrening);
+
         this.setContentView(sv2);
     }
 
