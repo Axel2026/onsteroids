@@ -55,7 +55,7 @@ public class PlanTreningu extends AppCompatActivity {
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
                 public void onClick(View v) {
-                    b1.setBackgroundResource(R.color.nawigacjaCzcionka);
+                    b1.setBackgroundResource(R.drawable.tlo_zrobione);
                     Intent intentCwiczenie = new Intent(PlanTreningu.this, Cwiczenie.class);
                     saveCw("o", seriePowtorzenia[a][0]);
                     saveCw("s", seriePowtorzenia[a][1]);
@@ -86,6 +86,7 @@ public class PlanTreningu extends AppCompatActivity {
             for (int j = 0; j < 1; j++) {
                 Button button = new Button(this);
                 String t = "O: " + seriePowtorzenia[i][0] + " S: " + seriePowtorzenia[i][1] + " P: " + seriePowtorzenia[i][2];
+                button.setBackgroundResource(R.drawable.tlo_nie_zrobione);
                 button.setText(tablicaCwiczen[i] + "  " +t);
                 button.setId(idy[i]);
                 DisplayMetrics displayMetrics = new DisplayMetrics();

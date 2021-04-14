@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -25,6 +26,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 public class OstatniTrening extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -34,6 +37,7 @@ public class OstatniTrening extends AppCompatActivity {
     String[] tablicaCwiczen;
     String[][] seriePowtorzenia;
     String[][] serieCzas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.ekran_ostatni_trening);
@@ -66,6 +70,9 @@ public class OstatniTrening extends AppCompatActivity {
 
     public void tworzeniePrzyciskow(int ilosc){
         ScrollView sv2 = new ScrollView(this);
+//        ImageView kreska = findViewById(R.id.kreska);
+//        kreska.setImageResource(R.mipmap.kreska);
+//        sv2.addView(kreska);
         //Tutaj zmieniaj wygląd ekranu, sv to nasz layout, więc jego edytuj tu. Linijkę niżej jest zmiana jego tła.
         sv2.setBackgroundColor(getResources().getColor(R.color.tlo));
         LinearLayout ll3 = new LinearLayout(this);
@@ -75,16 +82,19 @@ public class OstatniTrening extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT);
         layoutParams.gravity = RelativeLayout.ALIGN_PARENT_LEFT;
         ll3.setLayoutParams(layoutParams);
+
         sv2.addView(ll3);
 
         for(int i = 0; i < ilosc; i++) {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
                 TextView tv = new TextView(this);
-                String t = "\nCwiczenie: " + tablicaCwiczen[i] + "\nSerie: " +
+                String t = tablicaCwiczen[i] + "\nSerie: " +
                         serieCzas[i][0] + "\nPowtórzenia: " + seriePowtorzenia[i][1] + "\nObciążenie: " + seriePowtorzenia[i][0] + "\nCzas: " + serieCzas[i][1];
                 tv.setText(t);
-                tv.setBackgroundColor(getResources().getColor(R.color.wybierz));
+                tv.setBackgroundResource(R.drawable.tlo_wybierz);
+                tv.setWidth(1300);
+                tv.setTextColor(getResources().getColor(R.color.white));
                 //tv.setGravity(Gravity.CENTER_VERTICAL);
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -92,6 +102,7 @@ public class OstatniTrening extends AppCompatActivity {
                 //tv.setLayoutParams (new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT));
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(10,10,10,10);
+                tv.setPadding(30,30,30,30);
                 tv.setLayoutParams(params);
                 row.addView(tv);
             }
@@ -107,6 +118,7 @@ public class OstatniTrening extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            ll3.setGravity(Gravity.CENTER);
             ll3.addView(ok);
             this.setContentView(sv2);
     }

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -34,8 +35,11 @@ public class TworzeniePlanu2 extends AppCompatActivity {
     List<String> cwiczeniaObciazenieSeriePowtorzenia = new ArrayList<String>();
     final int[] kolejnyPrzycisk = {0};
     EditText obciazenie;
+    TextView obciazenieText;
     EditText serie;
+    TextView serieText;
     EditText powtorzenia;
+    TextView powtorzeniaText;
     String liczbaCwiczen;
     String[] tablicaCwiczen;
 
@@ -76,22 +80,34 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         sv.addView(ll);
 
         obciazenie = new EditText(TworzeniePlanu2.this);
+        obciazenieText = new TextView(TworzeniePlanu2.this);
         obciazenie.setId(idyET[0]);
+        obciazenie.setTextColor(getResources().getColor(R.color.white));
+        obciazenieText.setTextColor(getResources().getColor(R.color.tekstTworzeniePlanu));
         serie = new EditText(TworzeniePlanu2.this);
+        serieText = new TextView(TworzeniePlanu2.this);
         serie.setId(idyET[1]);
+        serie.setTextColor(getResources().getColor(R.color.white));
+        serieText.setTextColor(getResources().getColor(R.color.tekstTworzeniePlanu));
         powtorzenia = new EditText(TworzeniePlanu2.this);
+        powtorzeniaText = new TextView(TworzeniePlanu2.this);
         powtorzenia.setId(idyET[2]);
-        //obciazenie.setText("Obciążenie[kg]");
+        powtorzenia.setTextColor(getResources().getColor(R.color.white));
+        powtorzeniaText.setTextColor(getResources().getColor(R.color.tekstTworzeniePlanu));
+        obciazenieText.setText("Obciążenie[kg]");
         obciazenie.setText("1");
         obciazenie.setInputType(InputType.TYPE_CLASS_NUMBER);
-        //serie.setText("Liczba serii");
+        serieText.setText("Liczba serii");
         serie.setText("2");
         serie.setInputType(InputType.TYPE_CLASS_NUMBER);
-        //powtorzenia.setText("Liczba powtórzeń");
+        powtorzeniaText.setText("Liczba powtórzeń");
         powtorzenia.setText("3");
         powtorzenia.setInputType(InputType.TYPE_CLASS_NUMBER);
+        ll.addView(obciazenieText);
         ll.addView(obciazenie);
+        ll.addView(serieText);
         ll.addView(serie);
+        ll.addView(powtorzeniaText);
         ll.addView(powtorzenia);
 
         for(int i = 0; i < ilosc; i++) {

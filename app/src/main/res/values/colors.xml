@@ -12,5 +12,9 @@
     <color name="nawigacjaCzcionka">#f85f6a</color>
     <color name="wybierz">#232323</color>
     <color name="okZielony">#72bb53</color>
+    <color name="tloZrobione">#009514</color>
+    <color name="tloNieZrobione">#9F0000</color>
+    <color name="tekstTworzeniePlanu">#EAEAEA</color>
+
 
 </resources>

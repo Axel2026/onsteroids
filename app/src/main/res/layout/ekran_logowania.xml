@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/kreska"
         android:layout_width="353dp"
         android:layout_height="210dp"
         android:src="@mipmap/onsteroids"
