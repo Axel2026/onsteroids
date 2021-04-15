@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codinginflow.navigationdrawerexample.MainActivity"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/tworzeniePlanuNawigacja"
+            android:id="@+id/nav_tworzenie_planu"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/tworzeniePlanuMenu" />
         <item
-            android:id="@+id/planNawigacja"
+            android:id="@+id/nav_plan_treningu"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/planMenu" />
         <item
-            android:id="@+id/ostatnieTreningiNawigacja"
+            android:id="@+id/nav_ostatni_trening"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/ostatnieTreningiMenu" />
     </group>

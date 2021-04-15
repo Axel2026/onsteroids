@@ -11,6 +11,14 @@
     <string name="planMenu">Plan</string>
     <string name="ostatnieTreningiMenu">Ostatnie Treningi</string>
     <string name="progresMenu">Progres</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <string-array name="nav_item_activity_titles">
+        <item>tworzeniePlanuMenu</item>
+        <item>Plan</item>
+        <item>Ostatnie Treningi</item>
+    </string-array>
 
 
 </resources>

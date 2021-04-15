@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/tworzeniePlanuNawigacja">
+    app:startDestination="@+id/nav_tworzenie_planu">
 
     <fragment
-        android:id="@+id/tworzeniePlanuNawigacja"
+        android:id="@+id/nav_tworzenie_planu"
         android:name="com.example.silowniaapp.HomeFragment"
         android:label="@string/tworzeniePlanuMenu"
         tools:layout="@layout/ekran_logowania" />
 
     <fragment
-        android:id="@+id/planNawigacja"
+        android:id="@+id/nav_plan_treningu"
         android:name="com.example.silowniaapp.GalleryFragment"
         android:label="@string/planMenu"
         tools:layout="@layout/ekran_tworzenie_planu" />
 
     <fragment
-        android:id="@+id/ostatnieTreningiNawigacja"
+        android:id="@+id/nav_ostatni_trening"
         android:name="com.example.silowniaapp.OstatniTrening"
         android:label="@string/ostatnieTreningiMenu"
         tools:layout="@layout/ekran_ostatni_trening" />

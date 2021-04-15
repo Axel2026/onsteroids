@@ -32,7 +32,7 @@ public class OstatniTrening extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    Button ok;
+    Button ok,loginNawigacja,tworzeniePlanuNawigacja,planNawigacja,ostatniTreningNapis;
     String liczbaCwiczen;
     String[] tablicaCwiczen;
     String[][] seriePowtorzenia;
@@ -70,6 +70,54 @@ public class OstatniTrening extends AppCompatActivity {
 
     public void tworzeniePrzyciskow(int ilosc){
         ScrollView sv2 = new ScrollView(this);
+
+        ostatniTreningNapis = new Button(this);
+        ostatniTreningNapis.setWidth(297);
+        ostatniTreningNapis.setHeight(42);
+        ostatniTreningNapis.setBackgroundResource(R.mipmap.ostatnitrening);
+        ostatniTreningNapis.setEnabled(false);
+
+        loginNawigacja = new Button(this);
+        loginNawigacja.setText("PRZEJDŹ DO LOGOWANIA");
+        loginNawigacja.setTextSize(20);
+        loginNawigacja.setTextColor(getResources().getColor(R.color.white));
+        //loginNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
+        loginNawigacja.setWidth(200);
+        loginNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
+        loginNawigacja.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(OstatniTrening.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        tworzeniePlanuNawigacja = new Button(this);
+        tworzeniePlanuNawigacja.setText("przejdź do Tworzenia Planu");
+        tworzeniePlanuNawigacja.setTextSize(20);
+        tworzeniePlanuNawigacja.setTextColor(getResources().getColor(R.color.white));
+        //tworzeniePlanuNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.WRAP_CONTENT));
+        tworzeniePlanuNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
+        tworzeniePlanuNawigacja.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(OstatniTrening.this, TworzeniePlanu.class);
+                startActivity(intent);
+            }
+        });
+
+
+        planNawigacja = new Button(this);
+        planNawigacja.setText("przejdź do Planu");
+        planNawigacja.setTextSize(20);
+        planNawigacja.setTextColor(getResources().getColor(R.color.white));
+        //planNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
+        planNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
+        planNawigacja.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(OstatniTrening.this, PlanTreningu.class);
+                startActivity(intent);
+            }
+        });
 //        ImageView kreska = findViewById(R.id.kreska);
 //        kreska.setImageResource(R.mipmap.kreska);
 //        sv2.addView(kreska);
@@ -80,6 +128,11 @@ public class OstatniTrening extends AppCompatActivity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
+
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+
         layoutParams.gravity = RelativeLayout.ALIGN_PARENT_LEFT;
         ll3.setLayoutParams(layoutParams);
 
@@ -106,20 +159,28 @@ public class OstatniTrening extends AppCompatActivity {
                 tv.setLayoutParams(params);
                 row.addView(tv);
             }
+
+            //ll3.addView(ostatniTreningNapis);
             ll3.addView(row);
         }
             ok = new Button(this);
-            ok.setText("OK");
+            ok.setText("");
+            ok.setEnabled(false);
             ok.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
-            ok.setBackgroundColor(getResources().getColor(R.color.okZielony));
+            ok.setBackgroundColor(getResources().getColor(R.color.tlo));
             ok.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(OstatniTrening.this, PlanTreningu.class);
                     startActivity(intent);
                 }
             });
+
+
             ll3.setGravity(Gravity.CENTER);
             ll3.addView(ok);
+            ll3.addView(loginNawigacja);
+            ll3.addView(tworzeniePlanuNawigacja);
+            ll3.addView(planNawigacja);
             this.setContentView(sv2);
     }
 
