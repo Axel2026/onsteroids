@@ -2,6 +2,7 @@ package com.example.silowniaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,9 +14,12 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -25,6 +29,7 @@ public class TworzeniePlanu extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     String[] exerciseArr = new String[30];
     Context c = TworzeniePlanu.this;
+    private int clickCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +72,40 @@ public class TworzeniePlanu extends AppCompatActivity {
         RadioButton cwiczenieNogi5 = findViewById(R.id.cwiczenieNogi5);
         RadioButton cwiczenieNogi6 = findViewById(R.id.cwiczenieNogi6);
 
-        final Spinner spinner = (Spinner)findViewById(R.id.wybierzParieCiala);
-        String[] elementy = {"Wszystko","Klatka piersiowa", "Biceps", "Triceps", "Barki", "Nogi"};
+        final Spinner spinner = (Spinner) findViewById(R.id.wybierzParieCiala);
+        String[] elementy = {"Wszystko", "Klatka piersiowa", "Biceps", "Triceps", "Barki", "Nogi"};
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item, elementy);
         Button stworzPlan = findViewById(R.id.przyciskOk);
+
+//        Button tworzeniePlanuButtonNav = findViewById(R.id.tworzeniePlanuButtonNav);
+//        Button planButtonNav = findViewById(R.id.planButtonNav);
+//        Button ostatnieTreningiButtonNav = findViewById(R.id.ostatnieTreningiButtonNav);
+
+//        tworzeniePlanuButtonNav.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intentTworzeniePlanuButtonNav = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
+//                startActivity(intentTworzeniePlanuButtonNav);
+//            }
+//        });
+//
+//
+//        planButtonNav.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intentPlanButtonNav = new Intent(TworzeniePlanu.this, PlanTreningu.class);
+//                startActivity(intentPlanButtonNav);
+//            }
+//        });
+//
+//        ostatnieTreningiButtonNav.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intentOstatnieTreningiButtonNav = new Intent(TworzeniePlanu.this, OstatniTrening.class);
+//                startActivity(intentOstatnieTreningiButtonNav);
+//            }
+//        });
+
 
         stworzPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,8 +206,26 @@ public class TworzeniePlanu extends AppCompatActivity {
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
-                Intent intentNowyUzytkownik = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
-                startActivity(intentNowyUzytkownik);
+
+
+                if (cwiczenieKlata1.isChecked() || cwiczenieKlata2.isChecked() || cwiczenieKlata3.isChecked() ||
+                        cwiczenieKlata4.isChecked() || cwiczenieKlata5.isChecked() || cwiczenieKlata6.isChecked() ||
+                        cwiczenieBiceps1.isChecked() || cwiczenieBiceps2.isChecked() || cwiczenieBiceps3.isChecked() ||
+                        cwiczenieBiceps4.isChecked() || cwiczenieBiceps5.isChecked() || cwiczenieBiceps6.isChecked() ||
+                        cwiczenieTriceps1.isChecked() || cwiczenieTriceps2.isChecked() || cwiczenieTriceps3.isChecked() ||
+                        cwiczenieTriceps4.isChecked() || cwiczenieTriceps5.isChecked() || cwiczenieTriceps6.isChecked() ||
+                        cwiczenieBarki1.isChecked() || cwiczenieBarki2.isChecked() || cwiczenieBarki3.isChecked() ||
+                        cwiczenieBarki4.isChecked() || cwiczenieBarki5.isChecked() || cwiczenieBarki6.isChecked() ||
+                        cwiczenieNogi1.isChecked() || cwiczenieNogi2.isChecked() || cwiczenieNogi3.isChecked() ||
+                        cwiczenieNogi4.isChecked() || cwiczenieNogi5.isChecked() || cwiczenieNogi6.isChecked()
+                ) {
+                    Intent intentNowyUzytkownik = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
+                    startActivity(intentNowyUzytkownik);
+                } else {
+                    Toast.makeText(TworzeniePlanu.this, "Wybierz jakieś ćwiczenie", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
@@ -185,8 +238,7 @@ public class TworzeniePlanu extends AppCompatActivity {
                                        int id, long position) {
 
 
-                switch((int)position)
-                {
+                switch ((int) position) {
                     case 0:
                         cwiczenieKlata1.setVisibility(View.VISIBLE);
                         cwiczenieKlata2.setVisibility(View.VISIBLE);
@@ -421,23 +473,23 @@ public class TworzeniePlanu extends AppCompatActivity {
 
     public void TworzenieJsona() throws IOException, JSONException {
 
-            int licznik = 0;
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("nazwa", loadNick());
-            JSONArray jsArray = new JSONArray();
-            for (int i = 0; i < exerciseArr.length; i++) {
-                licznik += exerciseArr[i]==null ? 0 : 1;
-                jsArray.put(exerciseArr[i]);
-            }
-            jsonObject.put("ćwiczenia", jsArray);
-            jsonObject.put("liczba ćwiczeń", licznik);
-            String userString = jsonObject.toString();
-            String fileName = loadNick() + ".json";
-            File file = new File(c.getFilesDir(), fileName);
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(userString);
-            bufferedWriter.close();
+        int licznik = 0;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nazwa", loadNick());
+        JSONArray jsArray = new JSONArray();
+        for (int i = 0; i < exerciseArr.length; i++) {
+            licznik += exerciseArr[i] == null ? 0 : 1;
+            jsArray.put(exerciseArr[i]);
+        }
+        jsonObject.put("ćwiczenia", jsArray);
+        jsonObject.put("liczba ćwiczeń", licznik);
+        String userString = jsonObject.toString();
+        String fileName = loadNick() + ".json";
+        File file = new File(c.getFilesDir(), fileName);
+        FileWriter fileWriter = new FileWriter(file);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(userString);
+        bufferedWriter.close();
     }
 
     public String loadNick() {

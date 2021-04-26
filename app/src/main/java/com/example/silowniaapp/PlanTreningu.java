@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +38,8 @@ public class PlanTreningu extends AppCompatActivity {
     String[] tablicaCwiczen;
     String[][] seriePowtorzenia;
     final int[] kolejnyPrzycisk = {0};
+    Button button;
+    public int licznik=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class PlanTreningu extends AppCompatActivity {
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
                 public void onClick(View v) {
-                    b1.setBackgroundResource(R.drawable.tlo_zrobione);
+                    licznik++;
                     Intent intentCwiczenie = new Intent(PlanTreningu.this, Cwiczenie.class);
                     saveCw("o", seriePowtorzenia[a][0]);
                     saveCw("s", seriePowtorzenia[a][1]);
@@ -63,6 +66,7 @@ public class PlanTreningu extends AppCompatActivity {
                     saveCw("n", tablicaCwiczen[a]);
                     b1.setEnabled(false);
                     startActivity(intentCwiczenie);
+                    b1.setBackgroundResource(R.drawable.tlo_zrobione);
                 }
             });
         }
@@ -84,7 +88,7 @@ public class PlanTreningu extends AppCompatActivity {
         for(int i = 0; i < ilosc; i++) {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
-                Button button = new Button(this);
+                button = new Button(this);
                 String t = "O: " + seriePowtorzenia[i][0] + " S: " + seriePowtorzenia[i][1] + " P: " + seriePowtorzenia[i][2];
                 button.setBackgroundResource(R.drawable.tlo_nie_zrobione);
                 button.setText(tablicaCwiczen[i] + "  " +t);
@@ -102,8 +106,15 @@ public class PlanTreningu extends AppCompatActivity {
         zakonczTrening.setBackgroundColor(getResources().getColor(R.color.okZielony));
         zakonczTrening.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(PlanTreningu.this, OstatniTrening.class);
-                startActivity(intent);
+                if(licznik!=ilosc){
+                    Toast.makeText(PlanTreningu.this, "Wykonaj wszystkie treningi!", Toast.LENGTH_SHORT).show();
+                } else {
+                        licznik=0;
+                        Intent intent = new Intent(PlanTreningu.this, OstatniTrening.class);
+                        startActivity(intent);
+                    }
+
+
             }
         });
         ll3.addView(zakonczTrening);

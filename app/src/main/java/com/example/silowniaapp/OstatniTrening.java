@@ -30,6 +30,17 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class OstatniTrening extends AppCompatActivity {
 
+
+//
+//
+//
+    //DO ZROBIENIA SERIE (ŻEBY POKAZYWAŁO TYLE ILE SIĘ ZROBIŁO, A NIE TYLE ILE SIE MIAŁO ZROBIĆ)
+//
+//
+//
+//
+
+
     private AppBarConfiguration mAppBarConfiguration;
 
     Button ok,loginNawigacja,tworzeniePlanuNawigacja,planNawigacja,ostatniTreningNapis;
@@ -82,6 +93,9 @@ public class OstatniTrening extends AppCompatActivity {
         loginNawigacja.setTextSize(20);
         loginNawigacja.setTextColor(getResources().getColor(R.color.white));
         //loginNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
+        LinearLayout.LayoutParams params4 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params4.setMargins(10,10,10,10);
+        loginNawigacja.setLayoutParams(params4);
         loginNawigacja.setWidth(200);
         loginNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
         loginNawigacja.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +111,9 @@ public class OstatniTrening extends AppCompatActivity {
         tworzeniePlanuNawigacja.setTextSize(20);
         tworzeniePlanuNawigacja.setTextColor(getResources().getColor(R.color.white));
         //tworzeniePlanuNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params3.setMargins(10,10,10,10);
+        tworzeniePlanuNawigacja.setLayoutParams(params3);
         tworzeniePlanuNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
         tworzeniePlanuNawigacja.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -111,6 +128,9 @@ public class OstatniTrening extends AppCompatActivity {
         planNawigacja.setTextSize(20);
         planNawigacja.setTextColor(getResources().getColor(R.color.white));
         //planNawigacja.setLayoutParams (new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params2.setMargins(10,10,10,10);
+        planNawigacja.setLayoutParams(params2);
         planNawigacja.setBackgroundResource(R.mipmap.przycisktlo);
         planNawigacja.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -143,7 +163,7 @@ public class OstatniTrening extends AppCompatActivity {
             for (int j = 0; j < 1; j++) {
                 TextView tv = new TextView(this);
                 String t = tablicaCwiczen[i] + "\nSerie: " +
-                        serieCzas[i][0] + "\nPowtórzenia: " + seriePowtorzenia[i][1] + "\nObciążenie: " + seriePowtorzenia[i][0] + "\nCzas: " + serieCzas[i][1];
+                        seriePowtorzenia[i][2] /*serieCzas[i][0]*/ + "\nPowtórzenia: " + seriePowtorzenia[i][1] + "\nObciążenie: " + seriePowtorzenia[i][0] + "\nCzas: " + serieCzas[i][1];
                 tv.setText(t);
                 tv.setBackgroundResource(R.drawable.tlo_wybierz);
                 tv.setWidth(1300);

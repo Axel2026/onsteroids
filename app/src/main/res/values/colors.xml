@@ -10,7 +10,9 @@
     <color name="tlo">#343434</color>
     <color name="nawigacja">#444444</color>
     <color name="nawigacjaCzcionka">#f85f6a</color>
+    <color name="nawigacjaCzcionka2">#FDA5AC</color>
     <color name="wybierz">#232323</color>
+    <color name="wybrane">#676767</color>
     <color name="okZielony">#72bb53</color>
     <color name="tloZrobione">#009514</color>
     <color name="tloNieZrobione">#9F0000</color>

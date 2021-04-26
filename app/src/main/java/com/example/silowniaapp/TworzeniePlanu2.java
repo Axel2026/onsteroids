@@ -42,6 +42,9 @@ public class TworzeniePlanu2 extends AppCompatActivity {
     TextView powtorzeniaText;
     String liczbaCwiczen;
     String[] tablicaCwiczen;
+    Button button;
+    Button button2;
+    public int licznik=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,9 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
                 public void onClick(View v) {
+                    licznik++;
+                    b1.setBackgroundResource(R.drawable.tlo_wybrane);
+                    b1.setTextColor(getResources().getColor(R.color.nawigacjaCzcionka2));
                     b1.setEnabled(false);
                     cwiczeniaObciazenieSeriePowtorzenia.add(tablicaCwiczen[a]);
                     cwiczeniaObciazenieSeriePowtorzenia.add(obciazenie.getText().toString());
@@ -113,16 +119,28 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         for(int i = 0; i < ilosc; i++) {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
-                Button button = new Button(this);
+                button = new Button(this);
                 button.setText(tablicaCwiczen[i]);
                 button.setId(idy[i]);
+                button.setBackgroundResource(R.drawable.tlo_wybierz);
+                button.setTextColor(getResources().getColor(R.color.nawigacjaCzcionka));
+                button.setPadding(30,10,30,10);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(10,10,10,10);
+                button.setLayoutParams(params);
+
                 row.addView(button);
             }
             ll.addView(row);
+            //ll.addView(button2);
         }
 
         Button ok = new Button(this);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params2.setMargins(10,30,10,10);
+        ok.setLayoutParams(params2);
         ok.setText("OK");
+        ok.setBackgroundResource(R.drawable.tlo_zrobione);
         ok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(Integer.parseInt(liczbaCwiczen) < 1){
@@ -130,9 +148,16 @@ public class TworzeniePlanu2 extends AppCompatActivity {
                     return;
                 }
                 try {
-                    TworzenieJsona();
-                    Intent intent = new Intent(TworzeniePlanu2.this, PlanTreningu.class);
-                    startActivity(intent);
+                        if(licznik!=ilosc){
+                            Toast.makeText(TworzeniePlanu2.this, "zaznacz wszystkie cwiczenia", Toast.LENGTH_SHORT).show();
+                        }else{
+                            TworzenieJsona();
+                            licznik=0;
+                            Intent intent = new Intent(TworzeniePlanu2.this, PlanTreningu.class);
+                            startActivity(intent);
+                        }
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
