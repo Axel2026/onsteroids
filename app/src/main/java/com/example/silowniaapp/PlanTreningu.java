@@ -32,14 +32,14 @@ import java.util.Set;
 public class PlanTreningu extends AppCompatActivity {
 
     int[] idy = {R.id.przycisk1, R.id.przycisk2, R.id.przycisk3, R.id.przycisk4, R.id.przycisk5, R.id.przycisk6, R.id.przycisk7, R.id.przycisk8, R.id.przycisk9, R.id.przycisk10, R.id.przycisk11, R.id.przycisk12, R.id.przycisk13, R.id.przycisk14, R.id.przycisk15, R.id.przycisk16,
-            R.id.przycisk17, R.id.przycisk18, R.id.przycisk19, R.id.przycisk20, R.id.przycisk21, R.id.przycisk22, R.id.przycisk23, R.id.przycisk24, R.id.przycisk25, R.id.przycisk26, R.id.przycisk27, R.id.przycisk28, R.id.przycisk29, R.id.przycisk30 };
+            R.id.przycisk17, R.id.przycisk18, R.id.przycisk19, R.id.przycisk20, R.id.przycisk21, R.id.przycisk22, R.id.przycisk23, R.id.przycisk24, R.id.przycisk25, R.id.przycisk26, R.id.przycisk27, R.id.przycisk28, R.id.przycisk29, R.id.przycisk30};
     String liczbaCwiczen;
     Button zakonczTrening;
     String[] tablicaCwiczen;
     String[][] seriePowtorzenia;
     final int[] kolejnyPrzycisk = {0};
     Button button;
-    public int licznik=0;
+    public int licznik = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class PlanTreningu extends AppCompatActivity {
             Button b1 = findViewById(idy[i]);
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
+
                 public void onClick(View v) {
                     licznik++;
                     Intent intentCwiczenie = new Intent(PlanTreningu.this, Cwiczenie.class);
@@ -72,9 +73,8 @@ public class PlanTreningu extends AppCompatActivity {
         }
     }
 
-    public void tworzeniePrzyciskow(int ilosc){
+    public void tworzeniePrzyciskow(int ilosc) {
         ScrollView sv2 = new ScrollView(this);
-        //Tutaj zmieniaj wygląd ekranu, sv to nasz layout, więc jego edytuj tu. Linijkę niżej jest zmiana jego tła.
         sv2.setBackgroundColor(getResources().getColor(R.color.tlo));
         LinearLayout ll3 = new LinearLayout(this);
         ll3.setOrientation(LinearLayout.VERTICAL);
@@ -85,18 +85,18 @@ public class PlanTreningu extends AppCompatActivity {
         ll3.setLayoutParams(layoutParams);
         sv2.addView(ll3);
 
-        for(int i = 0; i < ilosc; i++) {
+        for (int i = 0; i < ilosc; i++) {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
                 button = new Button(this);
                 String t = "O: " + seriePowtorzenia[i][0] + " S: " + seriePowtorzenia[i][1] + " P: " + seriePowtorzenia[i][2];
                 button.setBackgroundResource(R.drawable.tlo_nie_zrobione);
-                button.setText(tablicaCwiczen[i] + "  " +t);
+                button.setText(tablicaCwiczen[i] + "  " + t);
                 button.setId(idy[i]);
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 int width = displayMetrics.widthPixels;
-                button.setLayoutParams (new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT));
+                button.setLayoutParams(new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT));
                 row.addView(button);
             }
             ll3.addView(row);
@@ -106,13 +106,13 @@ public class PlanTreningu extends AppCompatActivity {
         zakonczTrening.setBackgroundColor(getResources().getColor(R.color.okZielony));
         zakonczTrening.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(licznik!=ilosc){
+                if (licznik != ilosc) {
                     Toast.makeText(PlanTreningu.this, "Wykonaj wszystkie treningi!", Toast.LENGTH_SHORT).show();
                 } else {
-                        licznik=0;
-                        Intent intent = new Intent(PlanTreningu.this, OstatniTrening.class);
-                        startActivity(intent);
-                    }
+                    licznik = 0;
+                    Intent intent = new Intent(PlanTreningu.this, OstatniTrening.class);
+                    startActivity(intent);
+                }
 
 
             }
@@ -124,7 +124,6 @@ public class PlanTreningu extends AppCompatActivity {
 
     public void czytanieJsona() throws JSONException {
         try {
-            //Otwieranie i sczytywanie pliku login.json
             FileInputStream fis = PlanTreningu.this.openFileInput(loadNick() + ".json");
             int size = fis.available();
             byte[] buffer = new byte[size];
@@ -148,7 +147,6 @@ public class PlanTreningu extends AppCompatActivity {
                 }
             }
 
-            //Otwieranie i sczytywanie pliku login_cwiczenia.json
             FileInputStream fis2 = PlanTreningu.this.openFileInput(loadNick() + "_cwiczenia" + ".json");
             int size2 = fis2.available();
             byte[] buffer2 = new byte[size2];
@@ -157,7 +155,7 @@ public class PlanTreningu extends AppCompatActivity {
             String json2 = new String(buffer2, "UTF-8");
             JSONObject jsonObject2 = new JSONObject(json2);
             seriePowtorzenia = new String[Integer.parseInt(liczbaCwiczen)][3];
-            for(int o = 0; o < Integer.parseInt(liczbaCwiczen); o++){
+            for (int o = 0; o < Integer.parseInt(liczbaCwiczen); o++) {
                 JSONArray arr2 = jsonObject2.getJSONArray(tablicaCwiczen[o]);
                 seriePowtorzenia[o][0] = arr2.getString(0);
                 seriePowtorzenia[o][1] = arr2.getString(1);

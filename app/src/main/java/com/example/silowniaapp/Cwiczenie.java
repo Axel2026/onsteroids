@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.yashovardhan99.timeit.Stopwatch;
 
 import org.json.JSONArray;
@@ -94,16 +95,16 @@ public class Cwiczenie extends AppCompatActivity {
 
     public void nacisnietoStopStart(Stopwatch stopwatch) {
         if (stanStopera == 0) {
+            System.out.println("Stan: " + 0);
             ops = (TextView) findViewById(R.id.ops);
             String ustawione = "Obciążenie: " + loadObciazenie() + "\nPowtórzenia: " + loadPowtorzenia() + "\nSerie: " + liczbaSerii;
             ops.setText(ustawione);
             stopwatch.start();
             stanStopera++;
         } else if (stanStopera == 1) {
-            if (liczbaSerii < 2) {
-                liczbaSerii++;
-            } else if (liczbaSerii > Integer.parseInt(loadSerie())) {
-                czasSeria.add(String.valueOf(liczbaSerii - 1));
+            System.out.println("Stan: " + 1);
+            if (liczbaSerii == Integer.parseInt(loadSerie())) {
+                czasSeria.add(String.valueOf(liczbaSerii));
                 czasSeria.add(czas.getText().toString());
                 try {
                     TworzenieJsona();
@@ -118,7 +119,8 @@ public class Cwiczenie extends AppCompatActivity {
             stopwatch.pause();
             stanStopera++;
         } else if (stanStopera == 2) {
-            if (liczbaSerii == Integer.parseInt(loadSerie())) {
+            System.out.println("Stan: " + 2);
+            if (liczbaSerii == (Integer.parseInt(loadSerie()) - 1)) {
                 ops = (TextView) findViewById(R.id.ops);
                 String ustawione = "Obciążenie: " + loadObciazenie() + "\nPowtórzenia: " + loadPowtorzenia() + "\nSerie: " + loadSerie();
                 ops.setText(ustawione);
@@ -129,9 +131,9 @@ public class Cwiczenie extends AppCompatActivity {
             }
             if (liczbaSerii < Integer.parseInt(loadSerie())) {
                 ops = (TextView) findViewById(R.id.ops);
+                liczbaSerii++;
                 String ustawione = "Obciążenie: " + loadObciazenie() + "\nPowtórzenia: " + loadPowtorzenia() + "\nSerie: " + liczbaSerii;
                 ops.setText(ustawione);
-                liczbaSerii++;
                 stopwatch.resume();
                 stanStopera--;
             }
@@ -152,7 +154,7 @@ public class Cwiczenie extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else if (liczbaSerii < Integer.parseInt(loadSerie())) {
-            czasSeria.add(String.valueOf(liczbaSerii + 1));
+            czasSeria.add(String.valueOf(liczbaSerii));
             czasSeria.add(czas.getText().toString());
             try {
                 TworzenieJsona();

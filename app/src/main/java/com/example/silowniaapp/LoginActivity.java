@@ -1,6 +1,7 @@
 package com.example.silowniaapp;
 
 import android.content.SharedPreferences;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
@@ -32,15 +33,15 @@ public class LoginActivity extends AppCompatActivity {
                 String nick = login.getText().toString();
                 String fileName = nick + ".json";
                 File file = new File(LoginActivity.this.getFilesDir(), fileName);
-                if(!file.exists()){
+                if (!file.exists()) {
                     Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
                     saveNick(nick);
                     intentNowyUzytkownik.putExtra("NICKNAME", nick);
                     startActivity(intentNowyUzytkownik);
-                }else if(nick.equals("")){
+                } else if (nick.equals("")) {
                     String brakLoginu = "Proszę podać login!";
                     login.setText(brakLoginu);
-                }else{
+                } else {
                     Intent intent = new Intent(LoginActivity.this, OstatniTrening.class);
                     intent.putExtra("NICKNAME", nick);
                     saveNick(nick);

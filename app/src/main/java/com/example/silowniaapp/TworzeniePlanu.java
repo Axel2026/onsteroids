@@ -77,35 +77,6 @@ public class TworzeniePlanu extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item, elementy);
         Button stworzPlan = findViewById(R.id.przyciskOk);
 
-//        Button tworzeniePlanuButtonNav = findViewById(R.id.tworzeniePlanuButtonNav);
-//        Button planButtonNav = findViewById(R.id.planButtonNav);
-//        Button ostatnieTreningiButtonNav = findViewById(R.id.ostatnieTreningiButtonNav);
-
-//        tworzeniePlanuButtonNav.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentTworzeniePlanuButtonNav = new Intent(TworzeniePlanu.this, TworzeniePlanu2.class);
-//                startActivity(intentTworzeniePlanuButtonNav);
-//            }
-//        });
-//
-//
-//        planButtonNav.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentPlanButtonNav = new Intent(TworzeniePlanu.this, PlanTreningu.class);
-//                startActivity(intentPlanButtonNav);
-//            }
-//        });
-//
-//        ostatnieTreningiButtonNav.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentOstatnieTreningiButtonNav = new Intent(TworzeniePlanu.this, OstatniTrening.class);
-//                startActivity(intentOstatnieTreningiButtonNav);
-//            }
-//        });
-
 
         stworzPlan.setOnClickListener(new View.OnClickListener() {
             @Override

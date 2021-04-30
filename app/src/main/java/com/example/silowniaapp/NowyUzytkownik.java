@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
 
-
 public class NowyUzytkownik extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -30,9 +29,9 @@ public class NowyUzytkownik extends AppCompatActivity {
         stworzPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent stworzPlanIntent = new Intent(NowyUzytkownik.this, TworzeniePlanu.class);
-                    stworzPlanIntent.putExtra("NICKNAME", loadNick());
-                    startActivity(stworzPlanIntent);
+                Intent stworzPlanIntent = new Intent(NowyUzytkownik.this, TworzeniePlanu.class);
+                stworzPlanIntent.putExtra("NICKNAME", loadNick());
+                startActivity(stworzPlanIntent);
             }
         });
     }

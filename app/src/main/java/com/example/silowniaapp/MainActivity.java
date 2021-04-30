@@ -22,7 +22,7 @@ import android.content.Intent;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_tworzenie_planu, R.id.nav_plan_treningu, R.id.nav_ostatni_trening)
                 .setDrawerLayout(drawer)
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -68,120 +65,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_tworzenie_planu:
-                startActivity(new Intent(getApplicationContext(),TworzeniePlanu.class));
-                overridePendingTransition(0,0);
+                startActivity(new Intent(getApplicationContext(), TworzeniePlanu.class));
+                overridePendingTransition(0, 0);
                 return true;
             case R.id.nav_plan_treningu:
-                startActivity(new Intent(getApplicationContext(),PlanTreningu.class));
-                overridePendingTransition(0,0);
+                startActivity(new Intent(getApplicationContext(), PlanTreningu.class));
+                overridePendingTransition(0, 0);
                 return true;
             case R.id.nav_ostatni_trening:
-                startActivity(new Intent(getApplicationContext(),OstatniTrening.class));
-                overridePendingTransition(0,0);
+                startActivity(new Intent(getApplicationContext(), OstatniTrening.class));
+                overridePendingTransition(0, 0);
                 return true;
         }
         return true;
     }
 }
-
-
-
-
-
-//    private AppBarConfiguration mAppBarConfiguration;
-//    DrawerLayout drawer = findViewById(R.id.drawer_layout);
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.ekran_nawigacji);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        //NavigationView navigationView = findViewById(R.id.nav_view);
-//
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//
-//        NavigationView navigationView = findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_tworzenie_planu, R.id.nav_plan_treningu, R.id.nav_ostatni_trening)
-//                .setDrawerLayout(drawer)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_view);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
-//
-//
-//    }
-//
-//
-//
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.nav_tworzenie_planu:
-//                startActivity(new Intent(getApplicationContext(),TworzeniePlanu.class));
-//                overridePendingTransition(0,0);
-//                return true;
-//            case R.id.nav_plan_treningu:
-//                startActivity(new Intent(getApplicationContext(),PlanTreningu.class));
-//                overridePendingTransition(0,0);
-//                return true;
-//            case R.id.nav_ostatni_trening:
-//                startActivity(new Intent(getApplicationContext(),OstatniTrening.class));
-//                overridePendingTransition(0,0);
-//                return true;
-//        }
-//        drawer.closeDrawer(GravityCompat.START);
-//        return true;
-//    }
-//
-//
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-//
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.nav_tworzenie_planu:
-//                Intent intent = new Intent(this, TworzeniePlanu.class);
-//                startActivity(intent);
-//                return true;
-//            case R.id.nav_plan_treningu:
-//                Intent intent2 = new Intent(this, PlanTreningu.class);
-//                startActivity(intent2);
-//                return true;
-//            case R.id.nav_ostatni_trening:
-//                Intent intent3 = new Intent(this, OstatniTrening.class);
-//                startActivity(intent3);
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
-//}

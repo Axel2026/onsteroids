@@ -30,7 +30,7 @@ import org.json.*;
 public class TworzeniePlanu2 extends AppCompatActivity {
 
     int[] idy = {R.id.przycisk1, R.id.przycisk2, R.id.przycisk3, R.id.przycisk4, R.id.przycisk5, R.id.przycisk6, R.id.przycisk7, R.id.przycisk8, R.id.przycisk9, R.id.przycisk10, R.id.przycisk11, R.id.przycisk12, R.id.przycisk13, R.id.przycisk14, R.id.przycisk15, R.id.przycisk16,
-            R.id.przycisk17, R.id.przycisk18, R.id.przycisk19, R.id.przycisk20, R.id.przycisk21, R.id.przycisk22, R.id.przycisk23, R.id.przycisk24, R.id.przycisk25, R.id.przycisk26, R.id.przycisk27, R.id.przycisk28, R.id.przycisk29, R.id.przycisk30 };
+            R.id.przycisk17, R.id.przycisk18, R.id.przycisk19, R.id.przycisk20, R.id.przycisk21, R.id.przycisk22, R.id.przycisk23, R.id.przycisk24, R.id.przycisk25, R.id.przycisk26, R.id.przycisk27, R.id.przycisk28, R.id.przycisk29, R.id.przycisk30};
     int[] idyET = {R.id.tekst1, R.id.tekst2, R.id.tekst3};
     List<String> cwiczeniaObciazenieSeriePowtorzenia = new ArrayList<String>();
     final int[] kolejnyPrzycisk = {0};
@@ -43,13 +43,10 @@ public class TworzeniePlanu2 extends AppCompatActivity {
     String liczbaCwiczen;
     String[] tablicaCwiczen;
     Button button;
-    Button button2;
-    public int licznik=0;
+    public int licznik = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Zrobić wygląd activity
-        //Zrobić przycisk OK/////////////
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_tworzenie_planu2);
         try {
@@ -58,11 +55,12 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             e.printStackTrace();
         }
         tworzeniePrzyciskow(Integer.parseInt(liczbaCwiczen));
-        for(int i = 0; i < Integer.parseInt(liczbaCwiczen); i++) {
+        for (int i = 0; i < Integer.parseInt(liczbaCwiczen); i++) {
             kolejnyPrzycisk[0] = i;
             Button b1 = findViewById(idy[i]);
             b1.setOnClickListener(new View.OnClickListener() {
                 int a = kolejnyPrzycisk[0];
+
                 public void onClick(View v) {
                     licznik++;
                     b1.setBackgroundResource(R.drawable.tlo_wybrane);
@@ -77,9 +75,8 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         }
     }
 
-    public void tworzeniePrzyciskow(int ilosc){
+    public void tworzeniePrzyciskow(int ilosc) {
         ScrollView sv = new ScrollView(this);
-        //Tutaj zmieniaj wygląd ekranu, sv to nasz layout, więc jego edytuj tu. Linijkę niżej jest zmiana jego tła.
         sv.setBackgroundColor(getResources().getColor(R.color.tlo));
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -116,7 +113,7 @@ public class TworzeniePlanu2 extends AppCompatActivity {
         ll.addView(powtorzeniaText);
         ll.addView(powtorzenia);
 
-        for(int i = 0; i < ilosc; i++) {
+        for (int i = 0; i < ilosc; i++) {
             LinearLayout row = new LinearLayout(this);
             for (int j = 0; j < 1; j++) {
                 button = new Button(this);
@@ -124,38 +121,37 @@ public class TworzeniePlanu2 extends AppCompatActivity {
                 button.setId(idy[i]);
                 button.setBackgroundResource(R.drawable.tlo_wybierz);
                 button.setTextColor(getResources().getColor(R.color.nawigacjaCzcionka));
-                button.setPadding(30,10,30,10);
+                button.setPadding(30, 10, 30, 10);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                params.setMargins(10,10,10,10);
+                params.setMargins(10, 10, 10, 10);
                 button.setLayoutParams(params);
 
                 row.addView(button);
             }
             ll.addView(row);
-            //ll.addView(button2);
         }
 
         Button ok = new Button(this);
         LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params2.setMargins(10,30,10,10);
+        params2.setMargins(10, 30, 10, 10);
         ok.setLayoutParams(params2);
         ok.setText("OK");
         ok.setBackgroundResource(R.drawable.tlo_zrobione);
         ok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(Integer.parseInt(liczbaCwiczen) < 1){
+                if (Integer.parseInt(liczbaCwiczen) < 1) {
                     Toast.makeText(TworzeniePlanu2.this, "Nie dodano żadnego ćwiczenia", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 try {
-                        if(licznik!=ilosc){
-                            Toast.makeText(TworzeniePlanu2.this, "zaznacz wszystkie cwiczenia", Toast.LENGTH_SHORT).show();
-                        }else{
-                            TworzenieJsona();
-                            licznik=0;
-                            Intent intent = new Intent(TworzeniePlanu2.this, PlanTreningu.class);
-                            startActivity(intent);
-                        }
+                    if (licznik != ilosc) {
+                        Toast.makeText(TworzeniePlanu2.this, "zaznacz wszystkie cwiczenia", Toast.LENGTH_SHORT).show();
+                    } else {
+                        TworzenieJsona();
+                        licznik = 0;
+                        Intent intent = new Intent(TworzeniePlanu2.this, PlanTreningu.class);
+                        startActivity(intent);
+                    }
 
 
                 } catch (IOException e) {
@@ -179,20 +175,20 @@ public class TworzeniePlanu2 extends AppCompatActivity {
             String json = new String(buffer, "UTF-8");
             JSONObject jsonObject = new JSONObject(json);
             liczbaCwiczen = jsonObject.getString("liczba ćwiczeń");
-            if(Integer.parseInt(liczbaCwiczen) < 1){
+            if (Integer.parseInt(liczbaCwiczen) < 1) {
                 Toast.makeText(this, "Nie dodano żadnego ćwiczenia", Toast.LENGTH_SHORT).show();
                 return;
             }
             JSONArray arr = jsonObject.getJSONArray("ćwiczenia");
             List<String> listaCwiczen = new ArrayList<String>();
-            for (int i=0; i<arr.length(); i++) {
+            for (int i = 0; i < arr.length(); i++) {
                 listaCwiczen.add(arr.getString(i));
             }
 
             tablicaCwiczen = new String[Integer.parseInt(liczbaCwiczen)];
             int j = 0;
-            for (int i=0; i<listaCwiczen.size(); i++) {
-                if(!listaCwiczen.get(i).equals("null")) {
+            for (int i = 0; i < listaCwiczen.size(); i++) {
+                if (!listaCwiczen.get(i).equals("null")) {
                     tablicaCwiczen[j] = listaCwiczen.get(i);
                     j++;
                 }
@@ -206,12 +202,12 @@ public class TworzeniePlanu2 extends AppCompatActivity {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("nazwa", loadNick());
-        for (int i = 1; i < cwiczeniaObciazenieSeriePowtorzenia.size(); i+=4) {
+        for (int i = 1; i < cwiczeniaObciazenieSeriePowtorzenia.size(); i += 4) {
             JSONArray jsArray = new JSONArray();
             jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i));
-            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i+1));
-            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i+2));
-            jsonObject.put(cwiczeniaObciazenieSeriePowtorzenia.get(i-1), jsArray);
+            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i + 1));
+            jsArray.put(cwiczeniaObciazenieSeriePowtorzenia.get(i + 2));
+            jsonObject.put(cwiczeniaObciazenieSeriePowtorzenia.get(i - 1), jsArray);
         }
         jsonObject.put("liczba ćwiczeń", liczbaCwiczen);
         JSONArray jsArray2 = new JSONArray();
