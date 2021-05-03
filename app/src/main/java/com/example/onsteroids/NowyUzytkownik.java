@@ -1,4 +1,4 @@
-package com.example.silowniaapp;
+package com.example.onsteroids;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_tworzenie_planu"
-        android:name="com.example.silowniaapp.HomeFragment"
+        android:name="com.example.onsteroids.HomeFragment"
         android:label="@string/tworzeniePlanuMenu"
         tools:layout="@layout/ekran_logowania" />
 
     <fragment
         android:id="@+id/nav_plan_treningu"
-        android:name="com.example.silowniaapp.GalleryFragment"
+        android:name="com.example.onsteroids.GalleryFragment"
         android:label="@string/planMenu"
         tools:layout="@layout/ekran_tworzenie_planu" />
 
     <fragment
         android:id="@+id/nav_ostatni_trening"
-        android:name="com.example.silowniaapp.OstatniTrening"
+        android:name="com.example.onsteroids.OstatniTrening"
         android:label="@string/ostatnieTreningiMenu"
         tools:layout="@layout/ekran_ostatni_trening" />
 

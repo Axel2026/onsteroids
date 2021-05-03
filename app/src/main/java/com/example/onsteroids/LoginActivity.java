@@ -1,4 +1,4 @@
-package com.example.silowniaapp;
+package com.example.onsteroids;
 
 import android.content.SharedPreferences;
 
@@ -33,14 +33,14 @@ public class LoginActivity extends AppCompatActivity {
                 String nick = login.getText().toString();
                 String fileName = nick + ".json";
                 File file = new File(LoginActivity.this.getFilesDir(), fileName);
-                if (!file.exists()) {
+                if (nick.equals("") || nick.equals(" ") || nick.equals("Login") || nick.equals("Proszę podać login!")) {
+                    String brakLoginu = "Proszę podać login!";
+                    login.setText(brakLoginu);
+                } else if(!file.exists())  {
                     Intent intentNowyUzytkownik = new Intent(LoginActivity.this, NowyUzytkownik.class);
                     saveNick(nick);
                     intentNowyUzytkownik.putExtra("NICKNAME", nick);
                     startActivity(intentNowyUzytkownik);
-                } else if (nick.equals("")) {
-                    String brakLoginu = "Proszę podać login!";
-                    login.setText(brakLoginu);
                 } else {
                     Intent intent = new Intent(LoginActivity.this, OstatniTrening.class);
                     intent.putExtra("NICKNAME", nick);

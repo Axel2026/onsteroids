@@ -1,4 +1,4 @@
-package com.example.silowniaapp;
+package com.example.onsteroids;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +8,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -23,10 +22,6 @@ import org.json.JSONObject;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class OstatniTrening extends AppCompatActivity {
 

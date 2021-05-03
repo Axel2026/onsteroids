@@ -1,4 +1,4 @@
-package com.example.silowniaapp;
+package com.example.onsteroids;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
